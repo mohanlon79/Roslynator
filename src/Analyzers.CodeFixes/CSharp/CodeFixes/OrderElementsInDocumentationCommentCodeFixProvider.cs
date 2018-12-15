@@ -15,13 +15,13 @@ using Roslynator.CSharp.Syntax;
 
 namespace Roslynator.CSharp.CodeFixes
 {
-    [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(ReorderElementsInDocumentationCommentCodeFixProvider))]
+    [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(OrderElementsInDocumentationCommentCodeFixProvider))]
     [Shared]
-    public class ReorderElementsInDocumentationCommentCodeFixProvider : BaseCodeFixProvider
+    public class OrderElementsInDocumentationCommentCodeFixProvider : BaseCodeFixProvider
     {
         public sealed override ImmutableArray<string> FixableDiagnosticIds
         {
-            get { return ImmutableArray.Create(DiagnosticIdentifiers.ReorderElementsInDocumentationComment); }
+            get { return ImmutableArray.Create(DiagnosticIdentifiers.OrderElementsInDocumentationComment); }
         }
 
         public sealed override async Task RegisterCodeFixesAsync(CodeFixContext context)
@@ -34,14 +34,14 @@ namespace Roslynator.CSharp.CodeFixes
             Diagnostic diagnostic = context.Diagnostics[0];
 
             CodeAction codeAction = CodeAction.Create(
-                "Reorder elements",
-                ct => ReorderElementsAsync(context.Document, xmlElement, ct),
+                "Order elements",
+                ct => OrderElementsAsync(context.Document, xmlElement, ct),
                 GetEquivalenceKey(diagnostic));
 
             context.RegisterCodeFix(codeAction, diagnostic);
         }
 
-        private static Task<Document> ReorderElementsAsync(
+        private static Task<Document> OrderElementsAsync(
             Document document,
             XmlElementSyntax xmlElement,
             CancellationToken cancellationToken)

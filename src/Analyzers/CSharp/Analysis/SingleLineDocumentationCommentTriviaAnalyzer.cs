@@ -135,7 +135,7 @@ namespace Roslynator.CSharp.Analysis
             SyntaxNode parent = documentationComment.ParentTrivia.Token.Parent;
 
             bool unusedElement = !context.IsAnalyzerSuppressed(DiagnosticDescriptors.UnusedElementInDocumentationComment);
-            bool reorderParams = !context.IsAnalyzerSuppressed(DiagnosticDescriptors.ReorderElementsInDocumentationComment);
+            bool reorderParams = !context.IsAnalyzerSuppressed(DiagnosticDescriptors.OrderElementsInDocumentationComment);
             bool addParam = !context.IsAnalyzerSuppressed(DiagnosticDescriptors.AddParamElementToDocumentationComment);
             bool addTypeParam = !context.IsAnalyzerSuppressed(DiagnosticDescriptors.AddTypeParamElementToDocumentationComment);
 
@@ -282,7 +282,7 @@ namespace Roslynator.CSharp.Analysis
                 }
                 else if (index < firstIndex)
                 {
-                    context.ReportDiagnosticIfNotSuppressed(DiagnosticDescriptors.ReorderElementsInDocumentationComment, firstElement);
+                    context.ReportDiagnosticIfNotSuppressed(DiagnosticDescriptors.OrderElementsInDocumentationComment, firstElement);
                     return;
                 }
                 else
