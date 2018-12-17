@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Refactorings>
-  <Refactoring Id="RR9001" Identifier="ImplementCustomEnumerator" Title="Implement custom enumerator">
+  <Refactoring Id="RR0210" Identifier="ImplementCustomEnumerator" Title="Implement custom enumerator">
     <Syntaxes>
       <Syntax>class that implements IEnumerable&lt;T&gt;</Syntax>
     </Syntaxes>
@@ -70,6 +70,7 @@ class C<T> : IEnumerable<T>
 
         public void Reset()
         {
+            _index = -1;
             throw new NotImplementedException();
         }
 
