@@ -2533,7 +2533,7 @@ namespace Roslynator.CSharp
             helpLinkUri:        $"{HelpLinkUriRoot}{DiagnosticIdentifiers.MakeParameterRefReadOnly}", 
             customTags:         Array.Empty<string>());
 
-        /// <summary>RCSX005</summary>
+        /// <summary>RCS1232</summary>
         public static readonly DiagnosticDescriptor OrderElementsInDocumentationComment = new DiagnosticDescriptor(
             id:                 DiagnosticIdentifiers.OrderElementsInDocumentationComment, 
             title:              "Order elements in documentation comment.", 

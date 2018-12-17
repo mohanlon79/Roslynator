@@ -23,7 +23,12 @@ namespace Roslynator.Tests
 {
     class C
     {
-        void M()
+
+        /// <summary></summary>
+        /// <param name="p3"></param>
+        /// <param name="p2"></param>
+        /// <param name="p1"></param>
+        void M(object p1, object p2, object p3)
         {
         }
     }

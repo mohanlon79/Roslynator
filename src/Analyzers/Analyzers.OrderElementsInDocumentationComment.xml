@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Analyzers>
   <Analyzer Identifier="OrderElementsInDocumentationComment" IsDevelopment="true">
-    <Id>RCSX005</Id>
+    <Id>RCS1232</Id>
     <Title>Order elements in documentation comment.</Title>
     <MessageFormat>Order elements in documentation comment.</MessageFormat>
     <Category>Readability</Category>
@@ -12,8 +12,26 @@
     <Summary></Summary>
     <Samples>
       <Sample>
-        <Before><![CDATA[]]></Before>
-        <After><![CDATA[]]></After>
+        <Before><![CDATA[class C
+{
+    /// <summary></summary>
+    /// <param name="p3"></param> [|Id|]
+    /// <param name="p2"></param>
+    /// <param name="p1"></param>
+    void M(object p1, object p2, object p3)
+    {
+    }
+}]]></Before>
+        <After><![CDATA[class C
+{
+    /// <summary></summary>
+    /// <param name="p1"></param>
+    /// <param name="p2"></param>
+    /// <param name="p3"></param>
+    void M(object p1, object p2, object p3)
+    {
+    }
+}]]></After>
       </Sample>
     </Samples>
     <Remarks></Remarks>
